@@ -1,0 +1,4 @@
+---
+- name: Run docker-compose
+  community.docker.docker_compose:
+    project_src: "{{ playbook_dir }}/../.."
