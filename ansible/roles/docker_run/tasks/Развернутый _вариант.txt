@@ -1,0 +1,20 @@
+---
+- name: Ensure Docker is installed
+  package:
+    name: docker
+    state: present
+
+- name: Ensure docker-compose is installed
+  package:
+    name: docker-compose
+    state: present
+
+- name: Pull Docker images
+  community.docker.docker_compose:
+    project_src: "{{ playbook_dir }}/../.."
+    pull: yes
+
+- name: Start Docker Compose
+  community.docker.docker_compose:
+    project_src: "{{ playbook_dir }}/../.."
+    state: present
